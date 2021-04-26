@@ -15,6 +15,8 @@ class DetailActivity : AppCompatActivity() {
         if (url !=null){
        // binding webview
          detailwebview.settings.javaScriptEnabled= true
+            detailwebview.settings.userAgentString ="Mozilla/5.0 (iPhone; U; CPU like Mac OS X; en) AppleWebKit/420+ (KHTML, like Gecko) Version/3.0 Mobile/1A543a Safari/419.3"
+
             detailwebview.webViewClient= object : WebViewClient(){
                 override fun onPageFinished(view: WebView?, url: String?) {
                     super.onPageFinished(view, url)

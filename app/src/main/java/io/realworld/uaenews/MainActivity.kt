@@ -8,6 +8,8 @@ import android.util.Log
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.gms.ads.MobileAds
+import com.google.android.gms.ads.interstitial.InterstitialAd
 import com.littlemango.stacklayoutmanager.StackLayoutManager
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
@@ -15,6 +17,8 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+    private var mInterstitialAd: InterstitialAd? = null
+
     lateinit var adapter: NewsAdapter
     private var articles = mutableListOf<Article>()
     var pageNum= 1
@@ -24,6 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        MobileAds.initialize(this) {}
+
         adapter = NewsAdapter(this@MainActivity,articles)
         newsList.adapter = adapter
       //  newsList.layoutManager = LinearLayoutManager(this@MainActivity)
